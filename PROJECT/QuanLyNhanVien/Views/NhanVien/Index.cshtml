@@ -1,0 +1,54 @@
+﻿@model List<QuanLyNhanVien.Models.NhanVien>
+
+@{
+    ViewBag.Title = "Danh sách nhân viên";
+}
+
+<h2 class="text-primary mb-3"><i class="fa-solid fa-users"></i> Danh sách nhân viên</h2>
+
+<a asp-action="Create" class="btn btn-success mb-3">
+    <i class="fa-solid fa-circle-plus"></i> Thêm mới
+</a>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Ảnh</th>
+            <th>Mã NV</th>
+            <th>Họ tên</th>
+            <th>Phòng ban</th>
+            <th>Chức vụ</th>
+            <th>SĐT</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var nv in Model)
+        {
+            <tr>
+                <td width="80">
+                    @if (!string.IsNullOrEmpty(nv.Anh))
+                    {
+                        <img src="/images/@nv.Anh" width="70" class="img-thumbnail" />
+                    }
+                </td>
+                <td>@nv.MaNV</td>
+                <td>@nv.HoTen</td>
+                <td>@nv.TenPB</td>
+                <td>@nv.TenCV</td>
+                <td>@nv.SDT</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@nv.MaNV" class="btn btn-info btn-sm">
+                        <i class="text-white fa-solid fa-eye"></i>
+                    </a>
+                    <a asp-action="Edit" asp-route-id="@nv.MaNV" class="btn btn-warning btn-sm">
+                        <i class="text-white fa-solid fa-pen"></i>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@nv.MaNV" class="btn btn-danger btn-sm">
+                        <i class="text-white fa-solid fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

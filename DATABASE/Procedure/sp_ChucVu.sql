@@ -1,7 +1,7 @@
 ﻿USE QLNhanVien;
 GO
 
-CREATE OR ALTER PROC sp_ChucVu_Insert
+CREATE OR ALTER PROC ChucVu_Insert
     @TenCV NVARCHAR(50),
     @HeSoLuong FLOAT
 AS
@@ -22,7 +22,7 @@ BEGIN
 END;
 GO
 
-CREATE OR ALTER PROC sp_ChucVu_Update
+CREATE OR ALTER PROC ChucVu_Update
     @MaCV CHAR(5),
     @TenCV NVARCHAR(50),
     @HeSoLuong FLOAT
@@ -37,7 +37,7 @@ BEGIN
 END;
 GO
 
-CREATE OR ALTER PROC sp_ChucVu_Delete
+CREATE OR ALTER PROC ChucVu_Delete
     @MaCV CHAR(5)
 AS
 BEGIN
@@ -50,7 +50,7 @@ BEGIN
 END;
 GO
 
-CREATE OR ALTER PROC sp_ChucVu_GetAll
+CREATE OR ALTER PROC ChucVu_GetAll
 AS
 BEGIN
     SELECT * FROM ChucVu;

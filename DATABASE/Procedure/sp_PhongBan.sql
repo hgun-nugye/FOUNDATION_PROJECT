@@ -2,7 +2,7 @@
 GO
 
 -- Tự động tạo mã PBxxxxx
-CREATE OR ALTER PROC sp_PhongBan_Insert
+CREATE OR ALTER PROC PhongBan_Insert
     @TenPB NVARCHAR(50),
     @MoTa NVARCHAR(200)
 AS
@@ -26,7 +26,7 @@ BEGIN
 END;
 GO
 
-CREATE OR ALTER PROC sp_PhongBan_Update
+CREATE OR ALTER PROC PhongBan_Update
     @MaPB CHAR(7),
     @TenPB NVARCHAR(50),
     @MoTa NVARCHAR(200)
@@ -41,7 +41,7 @@ BEGIN
 END;
 GO
 
-CREATE OR ALTER PROC sp_PhongBan_Delete
+CREATE OR ALTER PROC PhongBan_Delete
     @MaPB CHAR(7)
 AS
 BEGIN
@@ -54,7 +54,7 @@ BEGIN
 END;
 GO
 
-CREATE OR ALTER PROC sp_PhongBan_GetAll
+CREATE OR ALTER PROC PhongBan_GetAll
 AS
 BEGIN
     SELECT * FROM PhongBan;

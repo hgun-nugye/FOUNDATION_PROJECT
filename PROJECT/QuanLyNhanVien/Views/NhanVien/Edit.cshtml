@@ -1,0 +1,86 @@
+﻿@model QuanLyNhanVien.Models.NhanVien
+
+@{
+    ViewBag.Title = "Cập nhật nhân viên";
+}
+
+<h2 class="text-warning mb-3"><i class="fa-solid fa-pen"></i> Cập nhật nhân viên</h2>
+
+<form asp-action="Edit" enctype="multipart/form-data">
+
+    <input type="hidden" asp-for="MaNV" />
+
+    <div class="row">
+        <div class="col-md-8">
+
+            <div class="mb-3">
+                <label>Họ tên</label>
+                <input asp-for="HoTen" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label>Ngày sinh</label>
+                <input asp-for="NgaySinh" type="date" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label>Giới tính</label>
+                <select asp-for="GioiTinh" class="form-control">
+                    <option value="Nam">Nam</option>
+                    <option value="Nữ">Nữ</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label>Địa chỉ</label>
+                <input asp-for="DiaChi" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label>Số điện thoại</label>
+                <input asp-for="SDT" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label>Email</label>
+                <input asp-for="Email" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label>Phòng ban</label>
+                <select asp-for="MaPB" asp-items="ViewBag.PhongBan" class="form-control"></select>
+            </div>
+
+            <div class="mb-3">
+                <label>Chức vụ</label>
+                <select asp-for="MaCV" asp-items="ViewBag.ChucVu" class="form-control"></select>
+            </div>
+
+            <div class="mb-3">
+                <label>Lương cơ bản</label>
+                <input asp-for="LuongCoBan" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label>Ngày vào làm</label>
+                <input asp-for="NgayVaoLam" type="date" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label>Ảnh hiện tại</label><br />
+                <img src="/images/@Model.Anh" width="120" class="img-thumbnail" />
+            </div>
+
+            <div class="mb-3">
+                <label>Chọn ảnh mới (nếu muốn)</label>
+                <input type="file" name="AnhFile" class="form-control" />
+            </div>
+
+        </div>
+
+        <div class="col-md-12 mt-3">
+            <button class="btn btn-warning"><i class="fa-solid fa-floppy-disk"></i> Cập nhật</button>
+            <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+        </div>
+    </div>
+</form>

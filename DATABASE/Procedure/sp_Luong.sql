@@ -1,7 +1,7 @@
 ﻿USE QLNhanVien;
 GO
 
-CREATE OR ALTER PROC sp_Luong_Insert
+CREATE OR ALTER PROC Luong_Insert
     @MaNV CHAR(12),
     @Thang INT,
     @Nam INT,
@@ -25,7 +25,7 @@ BEGIN
 END;
 GO
 
-CREATE OR ALTER PROC sp_Luong_Update
+CREATE OR ALTER PROC Luong_Update
     @MaLuong INT,
     @SoNgayCong INT,
     @Thuong MONEY,
@@ -41,7 +41,7 @@ BEGIN
 END;
 GO
 
-CREATE OR ALTER PROC sp_Luong_Delete
+CREATE OR ALTER PROC Luong_Delete
     @MaLuong INT
 AS
 BEGIN
@@ -54,7 +54,7 @@ BEGIN
 END;
 GO
 
-CREATE OR ALTER PROC sp_Luong_GetAll
+CREATE OR ALTER PROC Luong_GetAll
 AS
 BEGIN
     SELECT l.*, nv.HoTen, nv.LuongCoBan, (nv.LuongCoBan + l.Thuong - l.Phat) AS TongLuong

@@ -1,7 +1,7 @@
 ﻿USE QLNhanVien;
 GO
 
-CREATE OR ALTER PROC sp_NhanVien_Insert
+CREATE OR ALTER PROC NhanVien_Insert
     @HoTen NVARCHAR(MAX),
     @NgaySinh DATE,
     @GioiTinh NVARCHAR(3),
@@ -45,7 +45,7 @@ BEGIN
 END;
 GO
 
-CREATE OR ALTER PROC sp_NhanVien_Update
+CREATE OR ALTER PROC NhanVien_Update
     @MaNV CHAR(12),
     @HoTen NVARCHAR(MAX),
     @NgaySinh DATE,
@@ -72,7 +72,7 @@ BEGIN
 END;
 GO
 
-CREATE OR ALTER PROC sp_NhanVien_Delete
+CREATE OR ALTER PROC NhanVien_Delete
     @MaNV CHAR(12)
 AS
 BEGIN
@@ -85,12 +85,24 @@ BEGIN
 END;
 GO
 
-CREATE OR ALTER PROC sp_NhanVien_GetAll
+CREATE OR ALTER PROC NhanVien_GetAll
 AS
 BEGIN
-    SELECT nv.*, pb.TenPB, cv.TenCV, cv.HeSoLuong
+    SELECT nv.*, pb.TenPB as TenPB, cv.TenCV as TenCV, cv.HeSoLuong
     FROM NhanVien nv
     JOIN PhongBan pb ON nv.MaPB=pb.MaPB
     JOIN ChucVu cv ON nv.MaCV=cv.MaCV;
+END;
+GO
+
+CREATE OR ALTER PROC NhanVien_GetByID
+	@MaNV CHAR(12)
+AS
+BEGIN
+    SELECT nv.*, pb.TenPB as TenPB, cv.TenCV as TenCV, cv.HeSoLuong
+    FROM NhanVien nv
+    JOIN PhongBan pb ON nv.MaPB=pb.MaPB
+    JOIN ChucVu cv ON nv.MaCV=cv.MaCV
+	WHERE nv.MaNV=@MaNV
 END;
 GO

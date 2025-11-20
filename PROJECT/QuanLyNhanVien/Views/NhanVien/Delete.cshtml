@@ -1,0 +1,22 @@
+﻿@model QuanLyNhanVien.Models.NhanVien
+
+@{
+    ViewBag.Title = "Xóa nhân viên";
+}
+
+<h2 class="text-danger mb-3"><i class="fa-solid fa-trash"></i> Xóa nhân viên</h2>
+
+<div class="alert alert-warning">
+    Bạn có chắc chắn muốn xóa nhân viên <strong>@Model.HoTen</strong> ?
+</div>
+
+<div class="mb-3">
+    <img src="/images/@Model.Anh" width="150" class="img-thumbnail" />
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="MaNV" />
+
+    <button class="btn btn-danger"><i class="fa-solid fa-trash"></i> Xóa</button>
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>

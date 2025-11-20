@@ -1,0 +1,31 @@
+﻿@model QuanLyNhanVien.Models.NhanVien
+
+@{
+    ViewBag.Title = "Chi tiết nhân viên";
+}
+
+<h2 class="text-info mb-3"><i class="fa-solid fa-eye"></i> Chi tiết nhân viên</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <img src="/images/@Model.Anh" class="img-fluid rounded shadow" />
+    </div>
+
+    <div class="col-md-8">
+        <table class="table">
+            <tr><th>Mã nhân viên:</th><td>@Model.MaNV</td></tr>
+            <tr><th>Họ tên:</th><td>@Model.HoTen</td></tr>
+            <tr><th>Ngày sinh:</th><td>@Model.NgaySinh?.ToString("dd/MM/yyyy")</td></tr>
+            <tr><th>Giới tính:</th><td>@Model.GioiTinh</td></tr>
+            <tr><th>Địa chỉ:</th><td>@Model.DiaChi</td></tr>
+            <tr><th>Số điện thoại:</th><td>@Model.SDT</td></tr>
+            <tr><th>Email:</th><td>@Model.Email</td></tr>
+            <tr><th>Phòng ban:</th><td>@Model.TenPB</td></tr>
+            <tr><th>Chức vụ:</th><td>@Model.TenCV</td></tr>
+            <tr><th>Lương cơ bản:</th><td>@Model.LuongCoBan</td></tr>
+        </table>
+
+        <a asp-action="Edit" asp-route-id="@Model.MaNV" class="btn btn-warning">Sửa</a>
+        <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+    </div>
+</div>
